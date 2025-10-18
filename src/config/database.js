@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const URI =
-  "mongodb+srv://coolprajapat:rfJ8mkUcgR04wpfz@clustertest.ohumnrk.mongodb.net/devTinder";
+const URI = process.env.DATABASE_CONNECTION_STRING;
 async function dbConnect() {
   await mongoose.connect(URI);
 }

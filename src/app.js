@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { dbConnect } = require("../src/config/database");
 const { User } = require("./models/user");
@@ -25,7 +26,7 @@ app.use("/", userRouter);
 dbConnect()
   .then((res) => {
     console.log("Database connected successfully!");
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Server is listening! ");
     });
   })

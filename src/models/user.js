@@ -3,7 +3,6 @@ const { defaultPhotoUrl } = require("../utils/constants");
 const { Schema } = mongoose;
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
-const { jwtSecretKey } = require("../utils/constants");
 const userSchema = new Schema(
   {
     firstName: { type: String, required: true, minLength: 4, maxLength: 50 },
@@ -47,7 +46,9 @@ userSchema.index({ firstName: 1, lastName: 1 });
 
 userSchema.methods.getJWT = function () {
   const user = this;
-  const token = jwt.sign({ id: user._id }, jwtSecretKey, { expiresIn: "7d" });
+  const token = jwt.sign({ id: user._id }, process.env.jwtSecretKey, {
+    expiresIn: "7d",
+  });
   return token;
 };
 

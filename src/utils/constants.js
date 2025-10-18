@@ -1,6 +1,5 @@
 const defaultPhotoUrl =
   "https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg";
-const jwtSecretKey = "DEVTINDER@123";
 const USER_FIELDS = [
   "firstName",
   "lastName",
@@ -12,6 +11,5 @@ const USER_FIELDS = [
 ];
 module.exports = {
   defaultPhotoUrl,
-  jwtSecretKey,
   USER_FIELDS,
 };
